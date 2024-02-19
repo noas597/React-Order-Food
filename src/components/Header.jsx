@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import {userProgressActions} from '../store/userProgress-slice';
 import {uiActions} from '../store/ui-slice';
 import logoImg from '../assets/logo.jpg';
-import searchIcon from '../assets/search-icon.svg';
+import searchIcon from '../assets/icons/search-icon.svg';
 import Button from './UI/Button.jsx';
 
 export default function Header(){

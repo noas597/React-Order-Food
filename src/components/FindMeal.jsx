@@ -8,7 +8,10 @@ import {useSelector,useDispatch} from 'react-redux';
 import Modal from "./UI/Modal.jsx";
 import {uiActions} from '../store/ui-slice';
 import LoadingIndicator from './UI/LoadingIndicator.jsx';
-import MealItem from './MealItem.jsx';
+// import MealItem from './MealItem.jsx';
+import MealItemSearch from "./MealItemSearch.jsx";
+import closeIcon from '../assets/icons/icon-close.svg';
+import Button from './UI/Button.jsx';
 
 export default function FindMeal(){
     const mealsData = useRouteLoaderData("meals").meals; 
@@ -45,7 +48,13 @@ export default function FindMeal(){
             onClose={handleClose}
         >
             <>
-                <h2>Search Meal</h2>
+                <div>
+                    <h2 style={{display: "inline"}}>Search Meal</h2>
+                    <button className="closeIconButton" onClick={handleClose}>
+                        <img className='closeIcon' src={closeIcon} alt="search" />
+                    </button>
+                </div>
+                
                 <section className="content-section">
                     {/* <form 
                         onSubmit={handleSubmit} 
@@ -76,13 +85,21 @@ export default function FindMeal(){
                         </>
                     )}
 
-                    <ul>
-                        {searchedMeals.map((meal) => {
-                             return (
-                                <MealItem key={meal.id} meal={meal} />
-                            );
-                        })}  
-                    </ul>
+                    <div>
+                        {searchedMeals.length > 0 && (
+                           <ul className="search-meals-item">
+                                {searchedMeals.map((meal) => {
+                                    return (
+                                        <MealItemSearch key={meal.id} meal={meal} />
+                                    );
+                                })}  
+                            </ul> 
+                        )}
+                        
+                        {searchElement.current !== undefined && searchedMeals.length === 0 ? (
+                            <p>No meals found...</p>
+                        ) : searchElement.current !== "" && searchedMeals.length === 0 ? null : null}
+                    </div>
                 </section>
             </>
         </Modal>
