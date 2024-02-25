@@ -537,6 +537,6 @@ h1 {
 }
 
 .review-item-description {
-  margin: 1rem;
+  /* margin: 1rem; */
   color: #1d1a16;
 }
