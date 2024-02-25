@@ -95,10 +95,11 @@ export default function FindMeal(){
                                 })}  
                             </ul> 
                         )}
-                        
-                        {searchElement.current !== undefined && searchedMeals.length === 0 ? (
-                            <p>No meals found...</p>
-                        ) : searchElement.current !== "" && searchedMeals.length === 0 ? null : null}
+
+                        {(searchElement.current && 
+                            (searchElement.current.value !== undefined && 
+                            searchElement.current.value !== "" && searchedMeals.length === 0)) &&
+                            (<p>No meals found...</p>)}
                     </div>
                 </section>
             </>

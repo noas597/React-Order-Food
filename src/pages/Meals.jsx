@@ -58,7 +58,7 @@ export async function loader(){
   const response = await fetch('https://react-food-orders-98999-default-rtdb.firebaseio.com/products.json');
 
     if (!response.ok) {
-        throw json({message: "Could not fetch events"}, {status: 500});
+        throw json({message: "Could not fetch meals"}, {status: 500});
     } else {
         const resData = await response.json();
 

@@ -9,10 +9,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import Notification from './components/UI/Notification.jsx';
 // import {fetchCartData, sendCartData} from './store/cart-actions';
 import MealsPage, {loader as MealsLoader } from './pages/Meals.jsx';
-import ReviewPage from './pages/Review.jsx';
+import ReviewsPage, {loader as ReviewsLoader} from './pages/Reviews.jsx';
 import RootLayout from './pages/Root.jsx';
 import ErrorPage from './pages/Error.jsx';
 import HomePage from './pages/home.jsx';
+import ReviewsRootLayout from './pages/ReviewsRoot.jsx';
+import NewReviewPage from './pages/NewReview.jsx';
+import {action as reviewAction} from './components/ReviewForm.jsx';
 
 // let isInitial = true;
 
@@ -34,8 +37,21 @@ const router = createBrowserRouter([
       },
       {
         path: 'reviews',
-        element: <ReviewPage />
-      }
+        // element: <ReviewsRootLayout/>,
+        children: [
+          {
+            index: true,
+            element: <ReviewsPage />,
+            loader: ReviewsLoader,
+          },
+          {
+            path: 'new',
+            element: <NewReviewPage/>,
+            action: reviewAction,
+            // loader:checkAuthLoader
+          },
+        ]
+      },
     ]
   }
 ]);

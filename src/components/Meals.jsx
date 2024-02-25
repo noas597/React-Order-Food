@@ -9,7 +9,11 @@ import MealItem from "./MealItem.jsx";
 
 export default function Meals(){
     const data = useRouteLoaderData("meals"); 
-    const loadedMeals = data.meals;
+    let loadedMeals;
+
+    if(data){
+        loadedMeals = data.meals;
+    }
 
     // const {data: loadedMeals, isLoading, error} = useHttp('https://react-food-orders-98999-default-rtdb.firebaseio.com/products.json', requestConfig, []);
 

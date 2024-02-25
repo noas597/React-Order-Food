@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 10%;
+  padding: 2rem 10%;
 }
 
 #main-header #title {
@@ -413,4 +413,130 @@ h1 {
   height: 25px;
   width: 25px;
   margin: 0.5px 0 -3.5px;
+}
+
+/**************************************************/
+
+.reviews-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navList-reviews {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+}
+
+.navList-reviews a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #ffc404c7;
+}
+
+.navList-reviews a:hover,
+.navList-reviews a.active {
+  color: #ffc404;
+  font-weight: bold;
+}
+
+/*************************************************/
+
+.form {
+  max-width: 40rem;
+  margin: 2rem auto;
+}
+
+.form label,
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+}
+
+.form input,
+.form textarea {
+  font: inherit;
+  padding: 0.25rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  background-color: var(--color-gray-300);
+  color: var(--color-gray-800);
+  border: none;
+}
+
+.actions button[type='button'] {
+  background-color: transparent;
+  color: var(--color-gray-300);
+}
+
+.actions button:hover {
+  background-color: var(--color-primary-300);
+}
+
+.actions button[type='button']:hover {
+  background-color: var(--color-gray-800);
+}
+
+/*************************************************/
+
+#reviews {
+  width: 90%;
+  max-width: 70rem;
+  list-style: none;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1rem;
+}
+
+.review-item {
+  background-color: #fffcf9;
+  border-radius: 1rem;
+  overflow: hidden;
+  /* text-align: center; */
+  padding: 2rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.review-item article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-item h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.75rem 0;
+  color: #1d1a16;
+  /* display: inline-block; */
+  float: right;
+}
+
+.review-item h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.75rem 0;
+  color:#1d1a16;
+  display: inline-block;
+}
+
+.review-item-description {
+  margin: 1rem;
+  color: #1d1a16;
 }
