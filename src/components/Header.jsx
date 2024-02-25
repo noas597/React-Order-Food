@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import {userProgressActions} from '../store/userProgress-slice';
 import {uiActions} from '../store/ui-slice';
@@ -10,6 +10,9 @@ import Button from './UI/Button.jsx';
 export default function Header(){
     const dispatch = useDispatch();
     const cartQuantity = useSelector(state => state.cart.totalQuantity);
+
+    const location = useLocation();
+    const { pathname } = location;
 
     function handleShowCart(){
         dispatch(userProgressActions.showCart());
@@ -54,16 +57,21 @@ export default function Header(){
                             Reviews
                         </NavLink>
                     </li>
-                    <li>
-                        <Button textOnly onClick={handleSearch}>
-                            <img className='searchIcon' src={searchIcon} alt="search" />
-                        </Button>
-                    </li>
-                    <li>
-                        <Button textOnly onClick={handleShowCart}>
-                            Cart ({cartQuantity})    
-                        </Button>
-                    </li>
+
+                    {pathname === "/meals" && (
+                        <>
+                            <li>
+                                <Button textOnly onClick={handleSearch}>
+                                    <img className='searchIcon' src={searchIcon} alt="search" />
+                                </Button>
+                            </li>
+                            <li>
+                                <Button textOnly onClick={handleShowCart}>
+                                    Cart ({cartQuantity})    
+                                </Button>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </nav>
         </header>
